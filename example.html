@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>in a Moment.js</title>
+  </head>
+
+  <body>
+    <h1>Moment.js here now: <span id="then" data-date="Mon Jan 09 2017 08:42:14 GMT-0500 (EDT)"></span></h1>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="moment.js"></script>
+    <script>
+      var currentTimeMomentFormat = moment().format();
+      console.log("currentTimeMomentFormat = " + currentTimeMomentFormat);
+
+      var newTime = "13:45";
+      var newTimeFormatted = moment(newTime, "HH:mm").format("h:mm a");
+      console.log("newTimeFormatted = " + newTimeFormatted);
+
+      var timeDifference = moment(newTime, "HH:mm").fromNow();
+      console.log("timeDifference = " + timeDifference);
+
+      var timeDifference = moment("8:45 am", "h:mm a").add(45, "minutes");
+      console.log(moment(timeDifference).format("h:mm a"));
+
+      var firstTrainTime = "08:45";
+      var frequncy = 90;
+
+      var currentTime = moment();
+
+      var firstTrainMoment = moment(firstTrainTime, "HH:mm");
+
+      console.log(firstTrainMoment.isBefore(currentTime));
+
+      var tempMoment = firstTrainMoment;
+
+      while (tempMoment.isBefore(currentTime)) {
+        tempMoment = moment(tempMoment).add(frequncy, "minutes");
+        console.log("frequency added to first train time");
+        console.log(moment(tempMoment).format("h:mm a"));
+      }
+
+      var nextTrainTime = moment(tempMoment).format("h:mm a");
+
+      var currentTime = moment();
+      console.log("current time = " + moment(currentTime).format("h:mm a"));
+
+      var timeTillNextTrain = moment(tempMoment).diff(currentTime, "minutes");
+
+      console.log("time till next train = " + timeTillNextTrain);
+
+
+    </script>
+  </body>
+
+</html>

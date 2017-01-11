@@ -1,0 +1,20 @@
+.jumbotron {
+	padding-bottom: 2px;
+	padding-top: 2px;
+}
+
+.columnDestination {
+	float: left;
+}
+
+.columnFrequency {
+	float: left;
+}
+
+.columnNextArrival {
+	float: left;
+}
+
+.columnMinutesAway {
+	float: left;
+}
